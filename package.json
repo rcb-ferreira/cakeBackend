@@ -1,0 +1,26 @@
+{
+  "name": "cake_backend",
+  "version": "1.0.0",
+  "description": "Simple Cake API",
+  "main": "index.js",
+  "scripts": {
+    "prod": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rcb-ferreira/cakeBackend.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rcb-ferreira/cakeBackend/issues"
+  },
+  "homepage": "https://github.com/rcb-ferreira/cakeBackend#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "nodemon": "^1.19.1"
+  }
+}
