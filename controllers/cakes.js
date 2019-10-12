@@ -3,25 +3,33 @@ const axios = require('axios'),
 
 const getCakes = (id) => {
     try {
-        return axios.get(`${config.api}/cakes/${id || ''}`)
+        return axios.get(`${config.api}/cakes/${id || ''}`);
     } catch (error) {
-        console.error(error)
+        console.error(error);
     }
 }
 
 const createCakes = (data) => {
     try {
-        return axios.post(`${config.api}/cakes/`, { ...data } )
+        return axios.post(`${config.api}/cakes/`, { ...data } );
     } catch (error) {
-        console.error(error)
+        console.error(error);
     }
 }
 
 const updateCakes = (id, data) => {
     try {
-        return axios.put(`${config.api}/cakes/${id}`, { ...data } )
+        return axios.put(`${config.api}/cakes/${id}`, { ...data } );
     } catch (error) {
         console.error(error)
+    }
+}
+
+const deleteCakes = (id) => {
+    try {
+        return axios.delete(`${config.api}/cakes/${id}`);
+    } catch (error) {
+        console.error(error);
     }
 }
 
