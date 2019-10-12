@@ -1,10 +1,22 @@
-exports.listAll = (req, res) => {
-    return res.status(200).json(`list all`);
+const axios = require('axios'),
+    config = require('../config/properties.json'); // file to handle environment configurations
+
+
+const getCakes = (id) => {
+    try {
+        return axios.get(`${config.api}/cakes/${id || ''}`)
+    } catch (error) {
+        console.error(error)
+    }
 }
 
-exports.listById = (req, res) => {
-    return res.status(200).json(`list by id ${req.params.id}`);
+exports.listCakes = async (req, res) => {
+    const id = req.params.id || '';
+    const cakes = await getCakes(id);
+
+    return res.status(200).json(cakes.data);
 }
+
 
 exports.create = (req, res) => {
     return res.status(200).json(`create`);

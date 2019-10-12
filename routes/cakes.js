@@ -3,11 +3,11 @@ const router = express.Router();
 
 const Cakes = require('../controllers/cakes');
 
-// Get cake
-router.get('/cakes', Cakes.listAll);
+// Get cakes
+router.get('/cakes', Cakes.listCakes);
 
-// Get cake by id
-router.get('/cakes/:id', Cakes.listById);
+// Get cakes by id
+router.get('/cakes/:id', Cakes.listCakes);
 
 // Create cakes
 router.post('/cakes', Cakes.create);
