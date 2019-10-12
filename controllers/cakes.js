@@ -17,7 +17,6 @@ exports.listCakes = async (req, res) => {
     return res.status(200).json(cakes.data);
 }
 
-
 exports.create = (req, res) => {
     return res.status(200).json(`create`);
 }
