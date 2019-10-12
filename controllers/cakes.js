@@ -44,9 +44,12 @@ exports.update = async (req, res) => {
     const data = { name, comment, imageUrl, yumFactor } = req.body;
     const updateCake = await updateCakes(id, data);
 
-    return res.status(200).json(`${updateCake.statusText}`);
+    return res.status(200).json(`Updated ${updateCake.statusText}`);
 }
 
 exports.delete = async (req, res) => {
-    return res.status(200).json(`Delete ${req.params.id}`);
+    const id = req.params.id;
+    const deleteCake = await deleteCakes(id);
+
+    return res.status(200).json(`Delete ${deleteCake.statusText}`);
 }
