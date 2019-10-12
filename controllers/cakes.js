@@ -11,8 +11,15 @@ const getCakes = (id) => {
 
 const createCakes = (data) => {
     try {
-        console.log(data)
         return axios.post(`${config.api}/cakes/`, { ...data } )
+    } catch (error) {
+        console.error(error)
+    }
+}
+
+const updateCakes = (id, data) => {
+    try {
+        return axios.put(`${config.api}/cakes/${id}`, { ...data } )
     } catch (error) {
         console.error(error)
     }
@@ -29,13 +36,17 @@ exports.create = async (req, res) => {
     const data = { name, comment, imageUrl, yumFactor } = req.body;
     const setCake = await createCakes(data);
 
-    return res.status(200).json(setCake.statusText);
+    return res.status(200).json(`${setCake.statusText}`);
 }
 
-exports.update = (req, res) => {
-    return res.status(200).json(`Update ${req.params.id}`);
+exports.update = async (req, res) => {
+    const id = req.params.id;
+    const data = { name, comment, imageUrl, yumFactor } = req.body;
+    const updateCake = await updateCakes(id, data);
+
+    return res.status(200).json(`${updateCake.statusText}`);
 }
 
-exports.delete = (req, res) => {
+exports.delete = async (req, res) => {
     return res.status(200).json(`Delete ${req.params.id}`);
 }
